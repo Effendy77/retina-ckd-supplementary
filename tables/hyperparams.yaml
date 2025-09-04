@@ -1,0 +1,4 @@
+img_size: 224
+batch_size: 32
+epochs: 50
+lr: 3e-4

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: Retina–CKD Supplementary Materials
+message: If you use these supplementary materials, please cite the main paper and this package.
+authors:
+  - family-names: Hashim
+    given-names: Effendy Bin
+version: 0.1.0
+date-released: 2025-09-04

@@ -1,0 +1,5 @@
+- Data governance
+- Pseudonymisation keys
+- Image acquisition SOP
+- EHR extraction SOP
+- QC and adverse event reporting
