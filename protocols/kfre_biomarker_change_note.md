@@ -1,0 +1,2 @@
+# KFRE + Biomarker Change
+Evidence suggests adding **ΔeGFR** and **Δproteinuria/ACR** over ~12 months can improve discrimination and net benefit; include sensitivity analysis where available (see Clinical Kidney Journal, 2024).

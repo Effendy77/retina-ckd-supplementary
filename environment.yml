@@ -1,0 +1,14 @@
+name: retina-ckd-suppl
+channels: [conda-forge, defaults]
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - matplotlib
+  - lifelines==0.27.8
+  - scikit-learn
+  - seaborn
+  - pyarrow
+  - pip
+  - pip:
+      - pylatexenc
