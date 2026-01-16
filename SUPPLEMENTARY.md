@@ -16,8 +16,10 @@
 - **S3.4 Reclassification vs KFRE (NRI/IDI)** — `tables/reclass_summary.csv` + `figures/fig_reclass.pdf`.
 
 ## S4. Comparators
-- **S4.1 KFRE 4‑var & 8‑var** — method note `protocols/kfre_methods.md`; config `tables/kfre_config.yaml`.
+- **S4.1 KFRE 4-var & 8-var** — method note `protocols/kfre_methods.md`; config `tables/kfre_config.yaml`.
 - **S4.2 KFRE + biomarker change** — summary note `protocols/kfre_biomarker_change_note.md`.
+- **S4.3 KFRE input availability** — eGFR and ACR were available only in a subset of participants and were used exclusively for comparator analyses, not for primary model development.
+
 
 ## S5. Interpretability
 - **S5.1 Grad‑CAM casebook** — `figures/fig_gradcam_panel.pdf` with legend `figures/gradcam_legend.md`.
