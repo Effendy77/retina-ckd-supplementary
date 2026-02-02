@@ -73,4 +73,52 @@ PCA was used **solely as a diagnostic tool** to assess latent structure and redu
 ---
 
 ## Repository contents
+├── figures/
+│ ├── Fig_S1_correlation_heatmap.png
+│ ├── Fig_S2_boxplots_raw_features.png
+│ ├── Fig_S3a_raw_distributions.png
+│ ├── Fig_S3b_log_transformed_distributions.png
+│ ├── Fig_S4_PCA_explained_variance.png
+│ └── Fig_S5_PCA_projection_ESRD.png
+│
+├── tables/
+│ ├── Table_S1_feature_selection_rationale.csv
+│ └── Table_S2_retained_features.csv
+│
+├── Supplementary_Methods_S1.pdf
+└── README.md
+
+File names may vary slightly depending on journal formatting requirements.
+
+---
+
+## Relationship to modelling repositories
+
+This repository documents **feature engineering and selection only**.
+
+Model development, training, and evaluation are implemented separately in project-specific repositories (e.g. eGFR regression or ESRD survival modelling pipelines), which reference this repository for feature definitions and selection rationale.
+
+---
+
+## Citation
+
+If you use or reference these materials, please cite the associated manuscript(s) and this repository as supplementary material.
+
+A formal citation entry (DOI or Zenodo record) will be added upon publication.
+
+---
+
+## Notes
+
+- This repository supersedes earlier internal exploratory documents and reflects the **final, submission-ready supplementary methods**.
+- Figures showing outcome stratification are presented for **post-hoc interpretability only** and were **not used to inform feature selection**.
+
+---
+
+## Maintainer
+
+**Effendy Bin Hashim**  
+Department of Eye and Vision Science  
+Institute of Life Course and Medical Sciences  
+University of Liverpool
 
