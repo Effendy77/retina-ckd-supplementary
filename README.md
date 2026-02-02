@@ -1,119 +1,130 @@
-# Retina–CKD Supplementary Materials
+Supplementary materials: Retinal vascular feature extraction and selection for kidney outcome prediction
 
-**Target journal:** *EHJ Digital Health*  
-**Main code repo:** [retina-esrd-survival](https://github.com/Effendy77/retina-esrd-survival)
+This repository contains the supplementary methods, figures, and tables supporting the extraction, exploratory analysis, and outcome-agnostic selection of handcrafted retinal vascular features used across kidney-related prediction studies, including:
 
----
+eGFR regression
 
-## Overview
-This repository contains **supplementary materials** for the manuscript:
+ESRD risk and survival modelling
 
-> *Retinal Image–Based Survival Prediction of End-Stage Renal Disease: Development and Validation Using UK Biobank and LHCH Cohorts*  
-> Effendy Bin Hashim, et al. (2025)
+The materials in this repository correspond to Supplementary Methods S1 and Supplementary Figures S1–S5 of the associated manuscripts.
 
-It is designed as a companion to the main pipeline repo (`retina-esrd-survival`), housing **figures, tables, protocols, reporting checklists, and reproducibility manifests**.
+Scope and purpose
 
----
+The purpose of this repository is to provide transparent and reproducible documentation of the retinal vascular feature engineering pipeline used prior to predictive modelling.
+All analyses presented here were conducted independently of outcome labels and before model training, and therefore apply equally across downstream tasks.
 
-## Repository Structure
+This repository does not contain model training, prediction, or performance evaluation code.
 
-SUPPLEMENTARY.md # Index of all items S1–S8
-manifest.json # File hashes & reproducibility metadata
-environment.yml # Minimal environment to regenerate figures
+Retinal vascular features
 
-figures/ # Auto-generated figures
-make_fig_pipeline.py
-make_fig_cohort_flow.py
-make_fig_calibration.py
-make_fig_dca.py
-fig_pipeline.pdf
-fig_cohort_flow.pdf
-...
+An initial set of handcrafted retinal vascular features was extracted from automated vessel segmentations derived from colour fundus photographs. These features were designed to capture complementary aspects of retinal microvascular architecture, including:
 
-tables/ # Key tables in CSV and TeX
-cv_metrics.csv
-reclass_summary.csv
-cohort_inclusion_exclusion.csv
-kfre_config.yaml
-hyperparams.yaml
+Global vascular extent
 
-protocols/ # Cohort, KFRE, LHCH protocols
-ukb_esrd_labels.md
-kfre_methods.md
-lhch_synopsis.md
-lhch_sap.md
-lhch_site_checklist.md
+Vessel calibre
 
-checklists/ # Reporting guidelines
-tripod_ai_checklist.md
-strobe_checklist.md
+Network complexity
 
-manuscript/ # LaTeX templates for supplement
-cover_ehj_digital_health.tex
-main.tex
-supplementary.tex
+Geometric morphology
 
-scripts/ # Build scripts
-build_all.sh
-update_manifest.py
-make_supplement_pdf.sh
+A redundancy-aware exploratory data analysis (EDA) was performed to assess feature distributions, multicollinearity, and latent structure.
 
-references/ # BibTeX + PDF placeholders
-refs.bib
-pdfs/
+Outcome-agnostic feature selection
 
+Feature selection was conducted using an outcome-agnostic strategy, defined here as selection based exclusively on:
 
----
+Distributional properties (e.g. skewness, stability after transformation),
 
-## Quickstart
+Correlation structure and redundancy, and
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/Effendy77/retina-ckd-supplementary.git
-cd retina-ckd-supplementary
+Biological interpretability of distinct vascular domains,
 
+without incorporating information from kidney outcomes (eGFR, ESRD, or related endpoints).
 
-2. Set up environment
+Highly collinear features representing overlapping constructs (e.g. multiple proxies of vessel size or extent) were not retained simultaneously.
 
-conda env create -f environment.yml
-conda activate retina-ckd-suppl
+Based on this analysis, a parsimonious subset of four retinal vascular features was selected for downstream modelling:
 
-3. Rebuild all figures & update manifest
+Vessel density – global vascular extent / perfusion
 
-bash scripts/build_all.sh
+Mean vessel width – vessel calibre
 
-This regenerates pipeline/cohort flow diagrams and updates manifest.json with SHA256 hashes for all supplementary outputs.
+Fractal dimension – network complexity
 
-4. Generate cover page PDF (optional)
+Eccentricity – global vascular geometry
 
-bash scripts/make_supplement_pdf.sh
+These features capture complementary biological dimensions while minimising redundancy and improving interpretability.
 
-Requires pdflatex in your PATH.
+Exploratory analyses included
 
-Cross-links
+The supplementary materials include the following diagnostic analyses:
 
-Code & model training: retina-esrd-survival
+Correlation heatmap of all extracted retinal vascular features
 
-Auto-generated figures and results: results/figures/
- in the main repo
+Distributional assessment using boxplots and histograms
 
-Model checkpoints: checkpoints/
+Raw vs log-transformed feature distributions
+
+Principal component analysis (PCA):
+
+Explained variance across components
+
+Two-dimensional projection (PC1 vs PC2)
+
+PCA was used solely as a diagnostic tool to assess latent structure and redundancy and was not used for feature extraction, transformation, or model training.
+
+Repository contents
+├── figures/
+│   ├── Fig_S1_correlation_heatmap.png
+│   ├── Fig_S2_boxplots_raw_features.png
+│   ├── Fig_S3a_raw_distributions.png
+│   ├── Fig_S3b_log_transformed_distributions.png
+│   ├── Fig_S4_PCA_explained_variance.png
+│   └── Fig_S5_PCA_projection_ESRD.png
+│
+├── tables/
+│   ├── Table_S1_feature_selection_rationale.csv
+│   └── Table_S2_retained_features.csv
+│
+├── Supplementary_Methods_S1.pdf
+└── README.md
+├── figures/
+│   ├── Fig_S1_correlation_heatmap.png
+│   ├── Fig_S2_boxplots_raw_features.png
+│   ├── Fig_S3a_raw_distributions.png
+│   ├── Fig_S3b_log_transformed_distributions.png
+│   ├── Fig_S4_PCA_explained_variance.png
+│   └── Fig_S5_PCA_projection_ESRD.png
+│
+├── tables/
+│   ├── Table_S1_feature_selection_rationale.csv
+│   └── Table_S2_retained_features.csv
+│
+├── Supplementary_Methods_S1.pdf
+└── README.md
+File names may vary slightly depending on journal formatting requirements.
+
+Relationship to modelling repositories
+
+This repository documents feature engineering and selection only.
+
+Model development, training, and evaluation are implemented separately in project-specific repositories (e.g. eGFR regression or ESRD survival modelling pipelines), which reference this repository for feature definitions and selection rationale.
 
 Citation
 
-If you use these supplementary materials, please cite:
+If you use or reference these materials, please cite the associated manuscript(s) and this repository as supplementary material.
 
-@misc{hashim2025retinackdsuppl,
-  author       = {Effendy Bin Hashim},
-  title        = {Retina–CKD Supplementary Materials},
-  year         = {2025},
-  howpublished = {GitHub},
-  url          = {https://github.com/Effendy77/retina-ckd-supplementary}
-}
+A formal citation entry (DOI or Zenodo record) will be added upon publication.
 
-And also cite the main paper once published.
+Notes
 
-License
+This repository supersedes earlier internal exploratory documents and reflects the final, submission-ready supplementary methods.
 
-MIT License © 2025 Effendy Bin Hashim
+Figures showing outcome stratification are presented for post-hoc interpretability only and were not used to inform feature selection.
 
+Maintainer
+
+Effendy Bin Hashim
+Department of Eye and Vision Science
+Institute of Life Course and Medical Sciences
+University of Liverpool
