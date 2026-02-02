@@ -99,6 +99,13 @@ This repository documents **feature engineering and selection only**.
 Model development, training, and evaluation are implemented separately in project-specific repositories (e.g. eGFR regression or ESRD survival modelling pipelines), which reference this repository for feature definitions and selection rationale.
 
 ---
+### Related repository: feature extraction code
+
+The retinal vascular features documented in this repository were generated using automated pipelines implemented in the companion code repository:
+
+👉 **https://github.com/Effendy77/Retinal-Feature-Extract-CKD**
+
+That repository contains the scripts for vessel segmentation, feature computation, and data preprocessing. The present repository focuses exclusively on **methodological justification, exploratory diagnostics, and outcome-agnostic feature selection**.
 
 ## Citation
 
